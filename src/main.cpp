@@ -17,6 +17,7 @@ const char* password = "";
 uint16_t r, g, b, c, colorTemp, lux;
 
 void getData() {
+    Serial.println("Read data");
     tcs.getRawData(&r, &g, &b, &c);
     colorTemp = tcs.calculateColorTemperature(r, g, b);
     lux = tcs.calculateLux(r, g, b);
@@ -36,11 +37,11 @@ void getColorData() {
 
 void getState() {
     DynamicJsonDocument doc(512);
-    if(b > 500) {
+    if(b > g && b > r) {
       doc["state"] = "normal";
-    } else if(g > 500) {
+    } else if(g > b && g > r) {
       doc["state"] = "regeneration";
-    } else if(r > 500) {
+    } else if(r > b && r > g) {
       doc["state"] = "salt empty";
     }
     String buf;
@@ -75,6 +76,7 @@ void setup() {
     }
     
   WiFi.mode(WIFI_STA);
+  WiFi.setHostname("BWT-REST-SENSOR");
   WiFi.begin(ssid, password);
   Serial.println("");
  
@@ -88,7 +90,7 @@ void setup() {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("BWT-API")) {
+  if (MDNS.begin("BWT-REST-SENSOR")) {
     Serial.println("MDNS responder started");
   }
   
