@@ -1,6 +1,6 @@
 # ESPHome BWT sensor
 
-I own a [decalcifier made by BWT](https://www.bwt.com/de-de/produkte/perlwasseranlagen/aqa-life/) that isn't smart, actually its pretty dumb.
+I own a [decalcification system made by BWT](https://www.bwt.com/de-de/produkte/perlwasseranlagen/aqa-life/) that isn't smart, actually its pretty dumb.
 
 As I had quite a lot of trouble in the recent years, I searched for a non-invasive way to determin the opertaion status of the device.
 
