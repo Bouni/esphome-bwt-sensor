@@ -53,8 +53,9 @@ sensor:
     color_temperature:
       id: color_temperature
       name: "Color Temperature"
-    gain: 16x
-    integration_time: 240ms
+    gain: 60x
+    glass_attenuation_factor: 5.0
+    integration_time: 614ms
     update_interval: 10s
 
   - platform: wifi_signal
