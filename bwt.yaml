@@ -36,23 +36,23 @@ i2c:
 sensor:
   - platform: tcs34725
     red_channel:
-      id: red
-      name: "Red"
+      id: bwt_red
+      name: "BWT Red"
     green_channel:
-      id: green
-      name: "Green"
+      id: bwt_green
+      name: "BWT Green"
     blue_channel:
-      id: blue
-      name: "Blue"
+      id: bwt_blue
+      name: "BWT Blue"
     clear_channel:
-      id: clear
-      name: "Clear"
+      id: bwt_clear
+      name: "BWT Clear"
     illuminance:
-      id: illuminance
-      name: "Illuminance"
+      id: bwt_illuminance
+      name: "BWT Illuminance"
     color_temperature:
-      id: color_temperature
-      name: "Color Temperature"
+      id: bwt_color_temperature
+      name: "BWT Color Temperature"
     gain: 60x
     glass_attenuation_factor: 5.0
     integration_time: 614ms
@@ -81,11 +81,11 @@ text_sensor:
   - platform: template
     name: "BWT State"
     lambda: |-
-      if (id(blue).state > id(green).state && id(blue).state > id(red).state) {
+      if (id(bwt_blue).state > id(bwt_green).state  && id(bwt_blue).state > id(bwt_red).state) {
         return {"Normal"};
-      } else if (id(green).state > id(blue).state && id(green).state > id(red).state) {
+      } else if (id(bwt_green).state > id(bwt_red).state  && id(bwt_green).state > id(bwt_blue).state) {
         return {"Regeneration"};
-      } else if (id(red).state > id(blue).state && id(red).state > id(green).state) {
+      } else if (id(bwt_red).state > id(bwt_blue).state && id(bwt_red).state > id(bwt_green).state) {
         return {"Error"};
       } else {
         return {"Unknown"};
