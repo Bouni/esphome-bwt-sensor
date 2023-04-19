@@ -11,3 +11,14 @@ The ESP reads the color values (R, G, B), the color temperature and the illumina
 It then checks which color is dominat, blue means **Normal**, green means **Regeneration** and red means **Salt empty**.
 
 Actually red can be any error but I have to manually fill up the salt anyway, so I decided to use **Salt empty** and not **Error**.
+
+## Wiring
+
+![](https://github.com/Bouni/esphome-bwt-sensor/blob/main/esphome-bwt-sensor.svg)
+
+## Used Parts
+
+ - MH-ET LIVE MiniKit ESP32
+ - TCS34725 color sensor
+ - A bit of wire
+ - USB power adaptor
